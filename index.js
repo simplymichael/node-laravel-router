@@ -1,12 +1,13 @@
 "use strict";
-const createRouter = require('./lib/createRouter');
-const laravelToExpress = require('./lib/laravelToExpress');
-const uriWithParams = require('./lib/uriWithParams');
-const paramsFromUri = require('./lib/paramsFromUri');
+
+const createRouter = require("./lib/create-router");
+const laravelToExpress = require("./lib/laravel-to-express");
+const uriWithParams = require("./lib/uri-with-params");
+const paramsFromUri = require("./lib/params-from-uri");
 
 module.exports = {
-    createRouter,
-    laravelToExpress,
-    uriWithParams,
-    paramsFromUri
+  createRouter,
+  laravelToExpress,
+  uriWithParams,
+  paramsFromUri
 };

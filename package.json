@@ -1,6 +1,6 @@
 {
-  "name": "express-laravel-router",
-  "version": "1.4.1",
+  "name": "express-router-laravel",
+  "version": "1.0.0",
   "description": "A Laravel-inspired router for express.js",
   "main": "index.js",
   "directories": {
@@ -8,25 +8,47 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "test:coverage": "nyc npm test",
+    "commit": "git-cz",
+    "lint": "npx eslint lib test",
+    "lint:fix": "npm run lint -- --fix"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shaunpersad/express-laravel-router.git"
+    "url": "git+https://github.com/simplymichael/express-router-laravel.git"
   },
-  "keywords": ["express", "laravel", "router"],
-  "author": "",
+  "keywords": ["express", "laravel", "router", "routing-engine"],
+  "author": "simplymichael <simplymichaelorji@gmail.com> (https://github.com/simplymichael)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shaunpersad/express-laravel-router/issues"
+    "url": "https://github.com/simplymichael/express-router-laravel/issues"
   },
-  "homepage": "https://github.com/shaunpersad/express-laravel-router#readme",
+  "homepage": "https://github.com/simplymichael/express-router-laravel#readme",
   "devDependencies": {
-    "express": "^4.16.2",
-    "lodash": "^4.17.4",
-    "supertest": "^3.0.0"
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^9.4.0",
+    "express": "^4.19.2",
+    "ghooks": "^2.0.4",
+    "lodash": "^4.17.21",
+    "mocha": "^10.4.0",
+    "nyc": "^15.1.0",
+    "supertest": "^7.0.0"
   },
   "dependencies": {
-    "qs": "^6.5.1"
+    "qs": "^6.12.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    },
+    "ghooks": {
+      "pre-commit": "npm run lint && npm run test:coverage"
+    }
+  },
+  "engines": {
+    "node": ">=18.18.2",
+    "npm": ">=9.8.1"
   }
 }
