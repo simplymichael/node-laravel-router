@@ -1,7 +1,7 @@
 {
-  "name": "express-router-laravel",
-  "version": "1.0.1",
-  "description": "A Laravel-inspired router for express.js",
+  "name": "node-laravel-router",
+  "version": "1.0.0",
+  "description": "A Laravel-inspired router for node.js apps",
   "main": "index.js",
   "directories": {
     "lib": "lib",
@@ -16,15 +16,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/simplymichael/express-router-laravel.git"
+    "url": "git+https://github.com/simplymichael/node-laravel-router.git"
   },
-  "keywords": ["express", "laravel", "router", "routing-engine"],
+  "keywords": ["express", "laravel", "node", "router", "routing-engine"],
   "author": "simplymichael <simplymichaelorji@gmail.com> (https://github.com/simplymichael)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/simplymichael/express-router-laravel/issues"
+    "url": "https://github.com/simplymichael/node-laravel-router/issues"
   },
-  "homepage": "https://github.com/simplymichael/express-router-laravel#readme",
+  "homepage": "https://github.com/simplymichael/node-laravel-router#readme",
   "devDependencies": {
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
