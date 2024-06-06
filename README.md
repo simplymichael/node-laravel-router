@@ -1,5 +1,7 @@
-# express-laravel-router
-A Laravel-inspired router for express.js
+# express-router-laravel
+A Laravel-inspired router for express.js.
+
+(Forked from [Express Laravel Router](https://github.com/shaunpersad/express-laravel-router))
 
 ## Motivation
 This router is an alternative to the one that ships with express.js. Instead of manually creating instances of `express.Router`,
@@ -33,14 +35,14 @@ const app = express();
 const router = createRouter(app);
 
 router.group('/api', (router) => {
-   
+
     router.group('/v1', (router) => {
-                
+
         router.group('/users', (router) => {
-           
+
             router.get('/{userId}', (req, res) => { /* request handler logic */ });    
         });
-        
+
         router.post('/auth', (req, res) => { /* request handler logic */ });
     });
 });
@@ -68,9 +70,9 @@ The pure express.js version is not only visually harder to reason about, but it 
 routes and middleware are added.
 
 ## Usage
-Our quickstart example used strings as the first argument for both the `router.group` and `router.get` methods. You are 
-also able to supply an `options` object instead, for more powerful functionality. Supplying just a string is actually a 
-shortcut to setting the `prefix` option in the group `options` object, and the `uri` option in the route `options` object. 
+Our quickstart example used strings as the first argument for both the `router.group` and `router.get` methods. You are
+also able to supply an `options` object instead, for more powerful functionality. Supplying just a string is actually a
+shortcut to setting the `prefix` option in the group `options` object, and the `uri` option in the route `options` object.
 
 ### Group options
 The full group `options` object with their default values looks like this:
@@ -88,12 +90,12 @@ Note that all fields are optional, and any combination of fields can be used.
 Also note that the following are all equivalent:
 ```js
 router.group({ prefix: '/api' }, (router) => {
-   
+
 });
 
 // shortcut to the above
 router.group('/api', (router) => {
-   
+
 });
 ```
 For more details, see the [wiki page](https://github.com/shaunpersad/express-laravel-router/wiki/Group-options).
@@ -115,27 +117,27 @@ Note that all fields are optional, and any combination of fields can be used.
 Also note that the following are all equivalent:
 ```js
 router.route({ method: 'get', uri: '/api' }, (req, res) => {
-   
+
 });
 
 // the default method is "get"
 router.route({ uri: '/api' }, (req, res) => {
-   
+
 });
 
 // the default method is "get", and if a string is used instead of an object, that string becomes the uri option.
 router.route('/api', (req, res) => {
-   
+
 });
 
 // using router.{method} prefills the options object with the correct method.
 router.get({ uri: '/api' }, (req, res) => {
-    
+
 });
 
 // shortcut to the above
 router.get('/api', (req, res) => {
-   
+
 });
 ```
 For more details, see the [wiki page](https://github.com/shaunpersad/express-laravel-router/wiki/Route-options).
@@ -171,12 +173,12 @@ Instead of supplying a `method` in the options of `router.route`, you can simply
 set the proper `method` field in the options.
 ```js
 router.route({ method: 'post', uri: '/create' }, (req, res) => {
-    
+
 });
 
 // shortcut to the above
 router.post('/create', (req, res) => {
-   
+
 });
 ```
 
@@ -197,9 +199,9 @@ pass to `qs.stringify` can be done via the optional `options` object.
 If there are any patterns on the params, they must be honored by the supplied params, or an error will be thrown.
 ```js
 router.group({ prefix: '/user/{userId}', namespace: 'user.' }, (router) => {
-   
+
     router.get({ uri: '/friend/{friendId}', name: 'getFriend' }, (req, res) => {
-        
+
     });
 });
 
@@ -207,14 +209,14 @@ const url = router.url('user.getFriend', { userId: 1, friendId: 2, foo: 'bar' })
 // url will equal /user/1/friend/2?foo=bar
 ```
 ```js
-router.get({ 
-    uri: '/user/{userId}', 
-    name: 'getUser', 
-    patterns: { 
-        userId: /^\d+$/ 
-    } 
+router.get({
+    uri: '/user/{userId}',
+    name: 'getUser',
+    patterns: {
+        userId: /^\d+$/
+    }
 }, (req, res) => {
-    
+
 });
 const url = router.url('getUser', { userId: "one"}); // this will throw an error, because userId is expected to be a number.
 ```
