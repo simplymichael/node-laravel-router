@@ -16,7 +16,7 @@ This router is an alternative to the one that ships with express.js. Instead of 
 you can define your routes in group closures, where it becomes easier to create and reason about the shared properties of your routes.
 
 Also, this router allows you to execute custom code for each route definition, which can be useful for many things,
-e.g. injecting dependencies into each request handler, or [automatically creating a swagger/openapi spec from your routes](https://github.com/shaunpersad/express-laravel-router/wiki/Swagger-spec-generation-example).
+e.g. injecting dependencies into each request handler, or [automatically creating a swagger/openapi spec from your routes](https://github.com/simplymichael/express-router-laravel/wiki/Swagger-spec-generation-example).
 
 There are also some extra features like being able to name and generate urls strings for each route.
 
@@ -27,7 +27,7 @@ To summarize:
 
 ## Installation
 ```bash
-npm install express-laravel-router --save
+npm install express-router-laravel --save
 ```
 
 ## Quickstart
@@ -37,7 +37,7 @@ The below example will create two routes:
 2. A POST to `/api/v1/auth`
 ```js
 const express = require('express');
-const createRouter = require('express-laravel-router').createRouter;
+const createRouter = require('express-router-laravel').createRouter;
 
 const app = express();
 const router = createRouter(app);
@@ -106,7 +106,7 @@ router.group('/api', (router) => {
 
 });
 ```
-For more details, see the [wiki page](https://github.com/shaunpersad/express-laravel-router/wiki/Group-options).
+For more details, see the [wiki page](https://github.com/simplymichael/express-router-laravel/wiki/Group-options).
 
 ### Route options
 The full route `options` object with their default values looks like this:
@@ -148,7 +148,7 @@ router.get('/api', (req, res) => {
 
 });
 ```
-For more details, see the [wiki page](https://github.com/shaunpersad/express-laravel-router/wiki/Route-options).
+For more details, see the [wiki page](https://github.com/simplymichael/express-router-laravel/wiki/Route-options).
 
 ## Full API
 Below are all the methods available on a `router`.
