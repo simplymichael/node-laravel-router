@@ -306,7 +306,7 @@ in route definitions, and "namespace" in route groups.
 [node-version-image]: https://img.shields.io/node/v/node-laravel-router
 [package-url]: https://npm.im/node-laravel-router
 [npm-downloads-image]: https://img.shields.io/npm/dm/node-laravel-router
-[license-url]: https://github.com/simplymichael/node-laravel-router/blob/main/LICENSE.md
+[license-url]: https://github.com/simplymichael/node-laravel-router/blob/master/LICENSE.md
 [license-image]: https://img.shields.io/github/license/simplymichael/node-laravel-router
 [conventional-commits-url]: https://conventionalcommits.org
 [conventional-commits-image]: https://img.shields.io/badge/Conventional%20Commits-1.0.0-brightgreen.svg
