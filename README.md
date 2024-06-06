@@ -1,5 +1,5 @@
 # node-laravel-router
-A Laravel-inspired router for express.js.
+A Laravel-inspired router for node.js apps.
 
 (Forked from [Express Laravel Router](https://github.com/shaunpersad/express-laravel-router))
 
