@@ -3,6 +3,14 @@ A Laravel-inspired router for express.js.
 
 (Forked from [Express Laravel Router](https://github.com/shaunpersad/express-laravel-router))
 
+[![NPM version][npm-version-image]][npm-url]
+[![Node version][node-version-image]][node-url]
+[![NPM Downloads][npm-downloads-image]][package-url]
+[![License][license-image]][license-url]
+[![Conventional commits][conventional-commits-image]][conventional-commits-url]
+[![Tests][ci-image]][ci-url]
+[![Coverage][codecov-image]][codecov-url]
+
 ## Motivation
 This router is an alternative to the one that ships with express.js. Instead of manually creating instances of `express.Router`,
 you can define your routes in group closures, where it becomes easier to create and reason about the shared properties of your routes.
@@ -258,3 +266,19 @@ Unlike Laravel routes, chaining is discarded in favor of objects containing opti
 
 Additionally, some of Laravel's naming has been updated or repurposed for clarity, e.g. Laravel's "as" has become "name"
 in route definitions, and "namespace" in route groups.
+
+
+[npm-url]: https://npmjs.com/package/express-router-laravel
+[npm-version-image]: https://img.shields.io/npm/v/express-router-laravel
+[node-url]: https://nodejs.org/
+[node-version-image]: https://img.shields.io/node/v/express-router-laravel
+[package-url]: https://npm.im/express-router-laravel
+[npm-downloads-image]: https://img.shields.io/npm/dm/express-router-laravel
+[license-url]: https://github.com/simplymichael/express-router-laravel/blob/main/LICENSE.md
+[license-image]: https://img.shields.io/github/license/simplymichael/express-router-laravel
+[conventional-commits-url]: https://conventionalcommits.org
+[conventional-commits-image]: https://img.shields.io/badge/Conventional%20Commits-1.0.0-brightgreen.svg
+[ci-url]: https://github.com/simplymichael/express-router-laravel/actions/workflows/run-coverage-tests.yml
+[ci-image]: https://github.com/simplymichael/express-router-laravel/workflows/tests/badge.svg
+[codecov-url]: https://codecov.io/gh/simplymichael/express-router-laravel
+[codecov-image]: https://img.shields.io/codecov/c/github/simplymichael/express-router-laravel?token=9NNHXS8HDU
