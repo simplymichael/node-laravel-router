@@ -283,6 +283,67 @@ describe("createRouter(app:express[, mapActionToHandler:function]):Router", func
               }
             ]
           },
+          {
+            description: "\"options\" is a uri string that has pure express regex constraint",
+            options: "/foo/bar/{id}(\\d+)/:name([A-Z-a-z]+)",
+            action(req, res) {
+              res.send(`Welcome ${req.params.name ?? "Michael"}. Your ID is ${req.params.id}.`);
+            },
+            expected: [
+              {
+                url: "/foo/bar/123/James",
+                method: "get",
+                status: 200,
+                response: "Welcome James. Your ID is 123."
+              },
+              {
+                url: "/foo/bar/123/456",
+                method: "get",
+                status: 404
+              },
+              {
+                url: "/foo/bar/thing/James",
+                method: "get",
+                status: 404
+              },
+              {
+                url: "/foo/bar/James/123",
+                method: "get",
+                status: 404
+              }
+            ]
+          },
+          {
+            description: "\"options\" is a uri string that has optional express regex constraint",
+            options: "/foo/bar/{id}(\\d+)/:name?",
+            action(req, res) {
+              res.send(`Welcome ${req.params.name ?? "Michael"}. Your ID is ${req.params.id}.`);
+            },
+            expected: [
+              {
+                url: "/foo/bar/123/James",
+                method: "get",
+                status: 200,
+                response: "Welcome James. Your ID is 123."
+              },
+              {
+                url: "/foo/bar/154",
+                method: "get",
+                status: 200,
+                response: "Welcome Michael. Your ID is 154."
+              },
+              {
+                url: "/foo/bar/thing/James",
+                method: "get",
+                status: 404
+              },
+              {
+                url: "/foo/bar/James/123",
+                method: "get",
+                status: 404
+              }
+            ]
+          },
         ];
 
         tests.forEach(test => {
@@ -804,6 +865,67 @@ describe("createRouter(app:express[, mapActionToHandler:function]):Router", func
               },
               {
                 url: "/foo/123",
+                method: "get",
+                status: 404
+              }
+            ]
+          },
+          {
+            description: "\"options\" is a uri string that has pure express regex constraint",
+            options: "/foo/bar/{id}(\\d+)/:name([A-Z-a-z]+)",
+            action(req, res) {
+              res.send(`Welcome ${req.params.name ?? "Michael"}. Your ID is ${req.params.id}.`);
+            },
+            expected: [
+              {
+                url: "/foo/bar/123/James",
+                method: "get",
+                status: 200,
+                response: "Welcome James. Your ID is 123."
+              },
+              {
+                url: "/foo/bar/123/456",
+                method: "get",
+                status: 404
+              },
+              {
+                url: "/foo/bar/thing/James",
+                method: "get",
+                status: 404
+              },
+              {
+                url: "/foo/bar/James/123",
+                method: "get",
+                status: 404
+              }
+            ]
+          },
+          {
+            description: "\"options\" is a uri string that has optional express regex constraint",
+            options: "/foo/bar/{id}(\\d+)/:name?",
+            action(req, res) {
+              res.send(`Welcome ${req.params.name ?? "Michael"}. Your ID is ${req.params.id}.`);
+            },
+            expected: [
+              {
+                url: "/foo/bar/123/James",
+                method: "get",
+                status: 200,
+                response: "Welcome James. Your ID is 123."
+              },
+              {
+                url: "/foo/bar/154",
+                method: "get",
+                status: 200,
+                response: "Welcome Michael. Your ID is 154."
+              },
+              {
+                url: "/foo/bar/thing/James",
+                method: "get",
+                status: 404
+              },
+              {
+                url: "/foo/bar/James/123",
                 method: "get",
                 status: 404
               }
